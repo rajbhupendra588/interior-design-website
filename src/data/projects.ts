@@ -1,0 +1,158 @@
+import { Project } from "@/types";
+
+export const projects: Project[] = [
+  {
+    id: "1",
+    slug: "modern-luxury-apartment",
+    title: "Modern Luxury Apartment",
+    description: "A stunning transformation of a 2,500 sq ft apartment into a contemporary sanctuary with clean lines, natural materials, and sophisticated lighting.",
+    category: "Residential",
+    style: "Modern",
+    images: [
+      {
+        url: "/images/projects/modern-apt-1.jpg",
+        alt: "Modern living room with floor-to-ceiling windows",
+      },
+      {
+        url: "/images/projects/modern-apt-2.jpg",
+        alt: "Minimalist bedroom with warm lighting",
+      },
+    ],
+    beforeImage: "/images/projects/modern-apt-before.jpg",
+    afterImage: "/images/projects/modern-apt-after.jpg",
+    materials: ["Oak Wood", "Marble", "Brass Fixtures", "Linen Fabrics"],
+    challenges: "The apartment had low ceilings and limited natural light. We addressed this by using reflective surfaces, strategic lighting placement, and a neutral color palette to create an illusion of space.",
+    impact: "The transformed space increased property value by 35% and provided the family with a serene, functional living environment that perfectly balanced aesthetics and comfort.",
+    year: 2024,
+    location: "Mumbai, India",
+    area: "2,500 sq ft",
+  },
+  {
+    id: "2",
+    slug: "industrial-loft-conversion",
+    title: "Industrial Loft Conversion",
+    description: "Converting a 3,000 sq ft warehouse into a modern industrial loft with exposed brick, metal accents, and open-plan living.",
+    category: "Residential",
+    style: "Industrial",
+    images: [
+      {
+        url: "/images/projects/industrial-loft-1.jpg",
+        alt: "Industrial loft with exposed brick walls",
+      },
+      {
+        url: "/images/projects/industrial-loft-2.jpg",
+        alt: "Open kitchen with metal and wood elements",
+      },
+    ],
+    beforeImage: "/images/projects/industrial-loft-before.jpg",
+    afterImage: "/images/projects/industrial-loft-after.jpg",
+    materials: ["Exposed Brick", "Steel Beams", "Concrete Flooring", "Reclaimed Wood"],
+    challenges: "Maintaining the industrial character while ensuring comfort and warmth. We balanced raw materials with soft textures and strategic lighting.",
+    impact: "Created a unique living space that celebrates industrial heritage while providing modern luxury and functionality.",
+    year: 2023,
+    location: "Bangalore, India",
+    area: "3,000 sq ft",
+  },
+  {
+    id: "3",
+    slug: "classic-victorian-restoration",
+    title: "Classic Victorian Restoration",
+    description: "Restoring and modernizing a historic Victorian home while preserving its architectural heritage and ornate details.",
+    category: "Residential",
+    style: "Classic",
+    images: [
+      {
+        url: "/images/projects/victorian-1.jpg",
+        alt: "Restored Victorian living room",
+      },
+      {
+        url: "/images/projects/victorian-2.jpg",
+        alt: "Classic dining room with period details",
+      },
+    ],
+    beforeImage: "/images/projects/victorian-before.jpg",
+    afterImage: "/images/projects/victorian-after.jpg",
+    materials: ["Mahogany", "Velvet Upholstery", "Crystal Chandeliers", "Ornate Moldings"],
+    challenges: "Balancing preservation requirements with modern functionality. We worked closely with conservation specialists to restore original features while discreetly integrating contemporary amenities.",
+    impact: "The restoration won a Heritage Conservation Award and transformed the property into a showpiece that honors its past while serving modern living needs.",
+    year: 2023,
+    location: "Delhi, India",
+    area: "4,200 sq ft",
+  },
+  {
+    id: "4",
+    slug: "minimalist-penthouse",
+    title: "Minimalist Penthouse Retreat",
+    description: "A serene penthouse designed with minimalist principles, featuring clean lines, natural materials, and panoramic city views.",
+    category: "Residential",
+    style: "Minimalist",
+    images: [
+      {
+        url: "/images/projects/minimalist-1.jpg",
+        alt: "Minimalist penthouse living area",
+      },
+      {
+        url: "/images/projects/minimalist-2.jpg",
+        alt: "Japanese-inspired bedroom",
+      },
+    ],
+    beforeImage: "/images/projects/minimalist-before.jpg",
+    afterImage: "/images/projects/minimalist-after.jpg",
+    materials: ["White Oak", "Limestone", "Soft Textiles", "Matte Black Fixtures"],
+    challenges: "Creating warmth and personality within strict minimalist constraints. We used texture, subtle color variations, and carefully curated art pieces.",
+    impact: "The space promotes mindfulness and calm, perfectly aligning with the client's wellness-focused lifestyle.",
+    year: 2024,
+    location: "Pune, India",
+    area: "1,800 sq ft",
+  },
+  {
+    id: "5",
+    slug: "boutique-hotel-lobby",
+    title: "Boutique Hotel Lobby",
+    description: "A luxurious hotel lobby design that creates an unforgettable first impression with statement lighting and curated art.",
+    category: "Commercial",
+    style: "Modern",
+    images: [
+      {
+        url: "/images/projects/hotel-lobby-1.jpg",
+        alt: "Luxurious hotel lobby",
+      },
+      {
+        url: "/images/projects/hotel-lobby-2.jpg",
+        alt: "Reception area with statement lighting",
+      },
+    ],
+    materials: ["Travertine", "Brass", "Leather", "Custom Lighting Fixtures"],
+    challenges: "Designing for high traffic while maintaining a sense of intimacy and luxury. We created distinct zones for different guest experiences.",
+    impact: "Guest satisfaction scores increased by 45%, with the lobby becoming a popular social media backdrop.",
+    year: 2023,
+    location: "Goa, India",
+    area: "5,000 sq ft",
+  },
+  {
+    id: "6",
+    slug: "corporate-office-redesign",
+    title: "Corporate Office Redesign",
+    description: "Transforming a traditional office into a dynamic, collaborative workspace that enhances productivity and employee wellbeing.",
+    category: "Commercial",
+    style: "Modern",
+    images: [
+      {
+        url: "/images/projects/office-1.jpg",
+        alt: "Modern open office space",
+      },
+      {
+        url: "/images/projects/office-2.jpg",
+        alt: "Collaborative meeting area",
+      },
+    ],
+    materials: ["Acoustic Panels", "Ergonomic Furniture", "Living Walls", "Smart Glass"],
+    challenges: "Balancing open collaboration spaces with quiet zones for focused work, all within budget constraints.",
+    impact: "Employee satisfaction increased by 60%, and the company reported a 25% improvement in team collaboration.",
+    year: 2024,
+    location: "Hyderabad, India",
+    area: "12,000 sq ft",
+  },
+];
+
+

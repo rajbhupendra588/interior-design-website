@@ -1,0 +1,92 @@
+export interface Project {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  category: "Residential" | "Commercial";
+  style: "Modern" | "Classic" | "Industrial" | "Minimalist";
+  images: {
+    url: string;
+    alt: string;
+    isBefore?: boolean;
+  }[];
+  beforeImage?: string;
+  afterImage?: string;
+  materials: string[];
+  challenges?: string;
+  impact?: string;
+  year: number;
+  location: string;
+  area?: string;
+}
+
+export interface Service {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+  process: {
+    step: number;
+    title: string;
+    description: string;
+  }[];
+  duration?: string;
+  startingPrice?: string;
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role?: string;
+  content: string;
+  rating: number;
+  image?: string;
+  projectImage?: string;
+  videoUrl?: string;
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: {
+    name: string;
+    image?: string;
+  };
+  category: "Trends" | "Tips" | "Makeovers" | "Sustainability";
+  tags: string[];
+  coverImage: string;
+  publishedAt: string;
+  readTime: string;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  social?: {
+    linkedin?: string;
+    instagram?: string;
+  };
+}
+
+export interface BookingFormData {
+  name: string;
+  email: string;
+  phone: string;
+  location: string;
+  projectType: string;
+  areaSize: string;
+  budget: string;
+  appointmentDate: string;
+  appointmentTime: string;
+  message?: string;
+}
+
+
