@@ -95,10 +95,30 @@ export default function ConsultationPage() {
 
   const handleSubmit = async () => {
     if (validateStep(3)) {
-      // TODO: Integrate with CRM/Email service
-      console.log("Form submitted:", formData);
-      setIsSubmitted(true);
-      setCurrentStep(4);
+      try {
+        // Submit to API to save in Excel
+        const response = await fetch("/api/bookings", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          console.log("Booking saved:", data.bookingId);
+          setIsSubmitted(true);
+          setCurrentStep(4);
+        } else {
+          console.error("Failed to save booking");
+          alert("Failed to submit booking. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error submitting booking:", error);
+        alert("Failed to submit booking. Please try again.");
+      }
     }
   };
 

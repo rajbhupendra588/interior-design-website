@@ -11,15 +11,15 @@ import { Textarea } from "@/components/ui/Textarea";
 const locations = [
   {
     name: "Mumbai Office",
-    address: "123 Design Street, Bandra West, Mumbai, Maharashtra 400050",
+    address: "Bandra West, Mumbai, Maharashtra 400050",
     phone: "+91 98765 43210",
-    email: "mumbai@luxeinteriors.com",
+    email: "mumbai@luxeinteriors.in",
   },
   {
     name: "Bangalore Studio",
-    address: "456 Creative Avenue, Indiranagar, Bangalore, Karnataka 560038",
+    address: "Indiranagar, Bangalore, Karnataka 560038",
     phone: "+91 98765 43211",
-    email: "bangalore@luxeinteriors.com",
+    email: "bangalore@luxeinteriors.in",
   },
 ];
 
@@ -101,11 +101,11 @@ export default function ContactPage() {
                       <span>+91 98765 43210</span>
                     </a>
                     <a
-                      href="mailto:hello@luxeinteriors.com"
+                      href="mailto:info@luxeinteriors.in"
                       className="flex items-center space-x-3 text-slate-600 hover:text-amber-600 transition-colors duration-200"
                     >
                       <Mail className="w-5 h-5" />
-                      <span>hello@luxeinteriors.com</span>
+                      <span>info@luxeinteriors.in</span>
                     </a>
                   </div>
                 </div>

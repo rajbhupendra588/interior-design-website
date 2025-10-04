@@ -30,6 +30,7 @@ const footerLinks = {
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
     { name: "Cookie Policy", href: "/cookies" },
+    { name: "Admin Login", href: "/admin/login" },
   ],
 };
 
@@ -79,17 +80,17 @@ export function Footer() {
                   <span>+91 98765 43210</span>
                 </a>
                 <a
-                  href="mailto:hello@luxeinteriors.com"
+                  href="mailto:info@luxeinteriors.in"
                   className="flex items-center space-x-3 text-slate-400 hover:text-amber-500 transition-colors duration-200"
                 >
                   <Mail className="w-5 h-5" />
-                  <span>hello@luxeinteriors.com</span>
+                  <span>info@luxeinteriors.in</span>
                 </a>
                 <div className="flex items-start space-x-3 text-slate-400">
                   <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
                   <span>
-                    123 Design Street, <br />
-                    Mumbai, Maharashtra 400001
+                    Bandra West, <br />
+                    Mumbai, Maharashtra 400050
                   </span>
                 </div>
               </div>

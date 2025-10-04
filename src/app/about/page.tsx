@@ -81,10 +81,10 @@ export default function AboutPage() {
               <span className="text-amber-500">Into Experiences</span>
             </h1>
             <p className="text-lg lg:text-xl text-slate-300 leading-relaxed">
-              For over 15 years, LuxeInteriors has been creating exceptional
-              interior spaces that inspire, comfort, and endure. Our
-              award-winning team combines creative vision with technical
-              expertise to bring your dreams to life.
+              For over 15 years, LuxeInteriors has been India&apos;s trusted partner
+              in creating exceptional interior spaces that inspire, comfort, and endure. 
+              Our award-winning team blends contemporary design with Indian cultural 
+              aesthetics to bring your dreams to life.
             </p>
           </div>
         </Container>
@@ -193,12 +193,12 @@ export default function AboutPage() {
                     style={{
                       backgroundImage: `url('https://images.unsplash.com/photo-${
                         member.image === "1"
-                          ? "1573496359142-b31021b6b8f7"
+                          ? "1594744803329-55b58d87e95f"
                           : member.image === "2"
-                          ? "1560250097-0b93528c311a"
+                          ? "1633332755192-727a05c4013d"
                           : member.image === "3"
-                          ? "1573497019940-1c28c88b4f3e"
-                          : "1519085360753-af0119f409b1"
+                          ? "1580489944761-15a19d654956"
+                          : "1507003211169-0a1dd7228f2d"
                       }?q=80&w=800')`,
                     }}
                   />

@@ -170,6 +170,9 @@ export function Header() {
                     Book Consultation
                   </Button>
                 </Link>
+                <Link href="/admin/login" className="block text-center text-sm text-slate-500 hover:text-amber-600 transition-colors pt-2">
+                  Admin Login
+                </Link>
               </div>
             </Container>
           </motion.div>

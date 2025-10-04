@@ -44,7 +44,7 @@ export const services: Service[] = [
       },
     ],
     duration: "3-6 months",
-    startingPrice: "Contact for quote",
+    startingPrice: "₹15 Lakhs+",
   },
   {
     id: "2",
@@ -169,7 +169,7 @@ export const services: Service[] = [
       },
     ],
     duration: "4-12 months",
-    startingPrice: "Contact for quote",
+    startingPrice: "₹30 Lakhs+",
   },
 ];
 

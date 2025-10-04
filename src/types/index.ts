@@ -55,13 +55,15 @@ export interface BlogPost {
   content: string;
   author: {
     name: string;
-    image?: string;
+    role: string;
+    avatar: string;
   };
-  category: "Trends" | "Tips" | "Makeovers" | "Sustainability";
+  category: string;
   tags: string[];
-  coverImage: string;
+  image: string;
   publishedAt: string;
   readTime: string;
+  featured?: boolean;
 }
 
 export interface TeamMember {
@@ -87,6 +89,22 @@ export interface BookingFormData {
   appointmentDate: string;
   appointmentTime: string;
   message?: string;
+}
+
+export interface Booking {
+  ID: string;
+  Timestamp: string;
+  Name: string;
+  Email: string;
+  Phone: string;
+  Location: string;
+  "Project Type": string;
+  "Area Size": string;
+  Budget: string;
+  "Appointment Date": string;
+  "Appointment Time": string;
+  Message: string;
+  Status: string;
 }
 
 

@@ -49,9 +49,9 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed"
           >
-            Transform your space into an elegant sanctuary with our world-class
-            interior design services. From concept to completion, we bring your
-            vision to life with sophistication and timeless style.
+            Transform your space into an elegant sanctuary with India&apos;s premier
+            interior design services. From concept to completion, we blend modern aesthetics
+            with Indian sensibilities to create homes that inspire.
           </motion.p>
 
           <motion.div
