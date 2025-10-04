@@ -1,10 +1,14 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextResponse } from 'next/server';
+import { locales, defaultLocale } from './i18n';
 
 /**
- * Middleware for protecting routes and handling auth
- * Note: Client-side auth validation happens in the dashboard component
- * since we can't access localStorage from server-side middleware.
+ * Middleware for internationalization and route protection
+ * 
+ * Handles:
+ * - Locale detection and routing
+ * - Admin route protection (client-side auth check in components)
+ * - API route handling
  * 
  * This middleware can be extended in the future for:
  * - Server-side session validation
@@ -12,26 +16,38 @@ import type { NextRequest } from "next/server";
  * - Rate limiting
  * - Request logging
  */
-export function middleware(request: NextRequest) {
+
+// Create the i18n middleware
+const intlMiddleware = createMiddleware({
+  locales,
+  defaultLocale,
+  localePrefix: 'as-needed', // Only add locale prefix when not using default locale
+});
+
+export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Admin routes - client-side auth check happens in components
-  if (pathname.startsWith("/admin/dashboard")) {
+  // Skip locale handling for API routes, static files, and admin routes
+  if (
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/admin') ||
+    pathname.includes('.')
+  ) {
     return NextResponse.next();
   }
 
-  // API routes are protected individually in their handlers
-  if (pathname.startsWith("/api")) {
-    return NextResponse.next();
-  }
-
-  return NextResponse.next();
+  // Apply i18n middleware for all other routes
+  return intlMiddleware(request);
 }
 
 export const config = {
   matcher: [
-    "/admin/dashboard/:path*",
-    "/api/:path*",
+    // Match all pathnames except for
+    // - API routes (/api)
+    // - Next.js internals (/_next)
+    // - Static files (e.g. /favicon.ico)
+    '/((?!api|_next|.*\\..*).*)',
   ],
 };
 

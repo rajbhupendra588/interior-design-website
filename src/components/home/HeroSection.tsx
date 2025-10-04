@@ -3,10 +3,13 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
 export function HeroSection() {
+  const t = useTranslations('hero');
+  const locale = useLocale();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
       {/* Background Image with Overlay */}
@@ -29,7 +32,7 @@ export function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <span className="inline-block px-4 py-2 mb-6 text-sm font-medium text-amber-500 bg-amber-500/10 rounded-full border border-amber-500/20">
-              Award-Winning Interior Design
+              {t('badge')}
             </span>
           </motion.div>
 
@@ -39,8 +42,8 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight"
           >
-            Crafting Homes <br />
-            <span className="text-amber-500">That Inspire</span>
+            {t('title')} <br />
+            <span className="text-amber-500">{t('titleHighlight')}</span>
           </motion.h1>
 
           <motion.p
@@ -49,9 +52,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed"
           >
-            Transform your space into an elegant sanctuary with India&apos;s premier
-            interior design services. From concept to completion, we blend modern aesthetics
-            with Indian sensibilities to create homes that inspire.
+            {t('description')}
           </motion.p>
 
           <motion.div
@@ -60,15 +61,15 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link href="/consultation">
+            <Link href={`/${locale === 'en' ? '' : locale + '/'}consultation`}>
               <Button size="lg" className="group">
-                Book Consultation
+                {t('bookConsultation')}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </Button>
             </Link>
-            <Link href="/portfolio">
+            <Link href={`/${locale === 'en' ? '' : locale + '/'}portfolio`}>
               <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white hover:text-slate-900">
-                Explore Our Work
+                {t('exploreWork')}
               </Button>
             </Link>
           </motion.div>
@@ -82,15 +83,15 @@ export function HeroSection() {
           >
             <div>
               <div className="text-3xl md:text-4xl font-bold text-white mb-2">500+</div>
-              <div className="text-slate-400 text-sm md:text-base">Projects Completed</div>
+              <div className="text-slate-400 text-sm md:text-base">{t('projectsCompleted')}</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-white mb-2">15+</div>
-              <div className="text-slate-400 text-sm md:text-base">Years Experience</div>
+              <div className="text-slate-400 text-sm md:text-base">{t('yearsExperience')}</div>
             </div>
             <div>
               <div className="text-3xl md:text-4xl font-bold text-white mb-2">98%</div>
-              <div className="text-slate-400 text-sm md:text-base">Client Satisfaction</div>
+              <div className="text-slate-400 text-sm md:text-base">{t('clientSatisfaction')}</div>
             </div>
           </motion.div>
         </div>

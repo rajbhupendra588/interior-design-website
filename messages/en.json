@@ -1,0 +1,130 @@
+{
+  "navigation": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "fullInteriorDesign": "Full Interior Design",
+    "3dVisualization": "3D Visualization",
+    "furnitureDecor": "Furniture & Decor",
+    "commercialProjects": "Commercial Projects",
+    "bookConsultation": "Book Consultation",
+    "adminLogin": "Admin Login"
+  },
+  "hero": {
+    "badge": "Award-Winning Interior Design",
+    "title": "Crafting Homes",
+    "titleHighlight": "That Inspire",
+    "description": "Transform your space into an elegant sanctuary with India's premier interior design services. From concept to completion, we blend modern aesthetics with Indian sensibilities to create homes that inspire.",
+    "bookConsultation": "Book Consultation",
+    "exploreWork": "Explore Our Work",
+    "projectsCompleted": "Projects Completed",
+    "yearsExperience": "Years Experience",
+    "clientSatisfaction": "Client Satisfaction"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive design solutions tailored to your needs",
+    "viewAllServices": "View All Services",
+    "learnMore": "Learn More"
+  },
+  "portfolio": {
+    "title": "Featured Projects",
+    "subtitle": "Discover our latest masterpieces",
+    "viewAllProjects": "View All Projects",
+    "viewProject": "View Project"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Real experiences from satisfied homeowners"
+  },
+  "footer": {
+    "description": "Transform your space into an elegant sanctuary with award-winning interior design services.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "connect": "Connect",
+    "newsletter": "Newsletter",
+    "newsletterDescription": "Subscribe to get updates on our latest projects and design tips.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "viewMore": "View More",
+    "viewLess": "View Less"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's discuss your project",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "Send Message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "phonePlaceholder": "+91 98765 43210",
+    "messagePlaceholder": "Tell us about your project..."
+  },
+  "consultation": {
+    "title": "Book a Consultation",
+    "subtitle": "Schedule a free consultation with our design experts",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "projectType": "Project Type",
+    "selectProjectType": "Select project type",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "renovation": "Renovation",
+    "consultation": "Consultation",
+    "preferredDate": "Preferred Date",
+    "preferredTime": "Preferred Time",
+    "budget": "Budget Range",
+    "selectBudget": "Select your budget",
+    "message": "Additional Details",
+    "submit": "Book Consultation",
+    "messagePlaceholder": "Tell us about your requirements..."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Creating beautiful spaces since 2009",
+    "ourStory": "Our Story",
+    "ourTeam": "Our Team",
+    "ourValues": "Our Values"
+  },
+  "admin": {
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In"
+  },
+  "metadata": {
+    "title": "LuxeInteriors - Award-Winning Interior Design Studio",
+    "description": "Transform your space into an elegant sanctuary with world-class interior design services. From concept to completion, we bring your vision to life with sophistication and timeless style.",
+    "keywords": "interior design, luxury interiors, home design, commercial design, 3D visualization, interior designer, modern interiors, residential design"
+  }
+}
+

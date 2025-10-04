@@ -5,32 +5,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { cn } from "@/lib/utils";
-
-const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Portfolio", href: "/portfolio" },
-  {
-    name: "Services",
-    href: "/services",
-    children: [
-      { name: "Full Interior Design", href: "/services/full-interior-design" },
-      { name: "3D Visualization", href: "/services/3d-visualization" },
-      { name: "Furniture & Decor", href: "/services/furniture-decor-curation" },
-      { name: "Commercial Projects", href: "/services/commercial-projects" },
-    ],
-  },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
-];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations('navigation');
+  const locale = useLocale();
+
+  // Build navigation with translations and locale-aware paths
+  const navigation = [
+    { name: t('home'), href: `/${locale === 'en' ? '' : locale}` },
+    { name: t('portfolio'), href: `/${locale === 'en' ? '' : locale + '/'}portfolio` },
+    {
+      name: t('services'),
+      href: `/${locale === 'en' ? '' : locale + '/'}services`,
+      children: [
+        { name: t('fullInteriorDesign'), href: `/${locale === 'en' ? '' : locale + '/'}services/full-interior-design` },
+        { name: t('3dVisualization'), href: `/${locale === 'en' ? '' : locale + '/'}services/3d-visualization` },
+        { name: t('furnitureDecor'), href: `/${locale === 'en' ? '' : locale + '/'}services/furniture-decor-curation` },
+        { name: t('commercialProjects'), href: `/${locale === 'en' ? '' : locale + '/'}services/commercial-projects` },
+      ],
+    },
+    { name: t('about'), href: `/${locale === 'en' ? '' : locale + '/'}about` },
+    { name: t('blog'), href: `/${locale === 'en' ? '' : locale + '/'}blog` },
+    { name: t('contact'), href: `/${locale === 'en' ? '' : locale + '/'}contact` },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,10 +105,11 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
-          <div className="hidden lg:block">
-            <Link href="/consultation">
-              <Button size="md">Book Consultation</Button>
+          {/* CTA Button & Language Switcher - Desktop */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <LanguageSwitcher />
+            <Link href={`/${locale === 'en' ? '' : locale + '/'}consultation`}>
+              <Button size="md">{t('bookConsultation')}</Button>
             </Link>
           </div>
 
@@ -165,13 +171,16 @@ export function Header() {
                     )}
                   </div>
                 ))}
-                <Link href="/consultation" className="block pt-4">
+                <div className="pt-4 flex items-center justify-between">
+                  <LanguageSwitcher />
+                </div>
+                <Link href={`/${locale === 'en' ? '' : locale + '/'}consultation`} className="block pt-4">
                   <Button size="md" className="w-full">
-                    Book Consultation
+                    {t('bookConsultation')}
                   </Button>
                 </Link>
                 <Link href="/admin/login" className="block text-center text-sm text-slate-500 hover:text-amber-600 transition-colors pt-2">
-                  Admin Login
+                  {t('adminLogin')}
                 </Link>
               </div>
             </Container>
