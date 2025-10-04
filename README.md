@@ -155,7 +155,19 @@ npm install @sanity/client next-sanity
 npm install @strapi/strapi
 ```
 
-See `/docs/CMS_INTEGRATION.md` for detailed setup instructions.
+See `docs/` folder for detailed setup instructions and guides.
+
+## 📚 Documentation
+
+All project documentation is organized in the `docs/` folder:
+
+- **ADMIN_GUIDE.md** - Admin dashboard usage guide
+- **BOOKING_SYSTEM.md** - Booking system documentation
+- **DEPLOYMENT.md** - Deployment instructions
+- **FEATURES.md** - Complete feature list
+- **QUICK_START.md** - Quick start guide
+- **SETUP_COMPLETE.md** - Setup verification checklist
+- **INDIAN_MARKET_UPDATES.md** - Indian market customizations
 
 ## 🧪 Testing
 
