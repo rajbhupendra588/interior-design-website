@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { blogPosts } from "@/data/blog";
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

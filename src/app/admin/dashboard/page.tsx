@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Calendar, Clock, Mail, Phone, MapPin, LogOut, CheckCircle, XCircle, AlertCircle } from "lucide-react";
+import { Calendar, Clock, Mail, Phone, MapPin, LogOut, CheckCircle, XCircle, AlertCircle, Share2 } from "lucide-react";
 import type { Booking } from "@/types";
 
 export default function AdminDashboard() {
@@ -97,6 +97,13 @@ export default function AdminDashboard() {
               <p className="text-sm text-slate-600">Manage consultation bookings</p>
             </div>
             <div className="flex items-center gap-3">
+              <Button onClick={() => router.push("/admin/portfolio")} variant="outline" size="sm">
+                Portfolio
+              </Button>
+              <Button onClick={() => router.push("/admin/social-media")} variant="outline" size="sm">
+                <Share2 className="w-4 h-4 mr-2" />
+                Social Media
+              </Button>
               <Button onClick={handleLogout} variant="outline" size="sm">
                 <LogOut className="w-4 h-4 mr-2" />
                 Logout

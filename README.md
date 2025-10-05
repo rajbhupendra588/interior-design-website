@@ -13,6 +13,7 @@ A luxurious, high-performance interior design website built with Next.js 14, Typ
 - **About Page**: Team profiles, company values, and achievements
 - **Contact Page**: Multiple locations, contact form, and Google Maps integration
 - **Blog Structure**: Ready for CMS integration (Sanity/Strapi/Contentful)
+- **Admin Portfolio Management**: Simple interface for adding new portfolio projects without code changes
 
 ### Design & UX
 - ✨ Elegant, aspirational design with warm color palette
@@ -162,12 +163,15 @@ See `docs/` folder for detailed setup instructions and guides.
 All project documentation is organized in the `docs/` folder:
 
 - **ADMIN_GUIDE.md** - Admin dashboard usage guide
+- **ADMIN_PORTFOLIO.md** - Portfolio management guide
 - **BOOKING_SYSTEM.md** - Booking system documentation
+- **SOCIAL_MEDIA_MANAGEMENT.md** - Social media management guide
 - **DEPLOYMENT.md** - Deployment instructions
 - **FEATURES.md** - Complete feature list
 - **QUICK_START.md** - Quick start guide
 - **SETUP_COMPLETE.md** - Setup verification checklist
 - **INDIAN_MARKET_UPDATES.md** - Indian market customizations
+- **SOCIAL_MEDIA_SETUP.md** - Social media feature setup guide
 
 ## 🧪 Testing
 

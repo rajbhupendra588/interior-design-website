@@ -4,15 +4,16 @@ import Link from "next/link";
 import { ArrowLeft, MapPin, Calendar, Maximize } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+import { getPortfolioBySlug } from "@/lib/portfolio";
 import { projects } from "@/data/projects";
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = getPortfolioBySlug(slug);
 
   if (!project) {
     return {
@@ -32,6 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
+  // Generate static params only for default projects
+  // Custom portfolios will be handled dynamically
   return projects.map((project) => ({
     slug: project.slug,
   }));
@@ -39,7 +42,7 @@ export async function generateStaticParams() {
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = getPortfolioBySlug(slug);
 
   if (!project) {
     notFound();

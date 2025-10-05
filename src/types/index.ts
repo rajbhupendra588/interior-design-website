@@ -107,4 +107,16 @@ export interface Booking {
   Status: string;
 }
 
+export interface SocialMedia {
+  id: string;
+  name: string;
+  platform: "Instagram" | "Facebook" | "LinkedIn" | "Twitter" | "YouTube" | "Pinterest" | "TikTok" | "WhatsApp" | "Other";
+  url: string;
+  icon?: string;
+  enabled: boolean;
+  order: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 

@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Facebook, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Share2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import type { SocialMedia } from "@/types";
 
 const footerLinks = {
   company: [
@@ -34,15 +35,42 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com" },
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com" },
-];
+// Icon mapping for social media platforms
+const platformIcons: Record<string, any> = {
+  Instagram,
+  Facebook,
+  LinkedIn: Linkedin,
+  Twitter,
+  YouTube: Youtube,
+  Pinterest: Share2,
+  TikTok: Share2,
+  WhatsApp: Share2,
+  Other: Share2,
+};
 
 export function Footer() {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [socialLinks, setSocialLinks] = useState<SocialMedia[]>([]);
+
+  // Fetch social media links on component mount
+  useEffect(() => {
+    const fetchSocialMedia = async () => {
+      try {
+        const response = await fetch("/api/social-media");
+        const data = await response.json();
+        if (data.success) {
+          setSocialLinks(data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching social media:", error);
+        // Fallback to empty array if fetch fails
+        setSocialLinks([]);
+      }
+    };
+
+    fetchSocialMedia();
+  }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,15 +126,16 @@ export function Footer() {
               {/* Social Links */}
               <div className="flex space-x-4 mt-6">
                 {socialLinks.map((social) => {
-                  const Icon = social.icon;
+                  const Icon = platformIcons[social.platform] || Share2;
                   return (
                     <a
-                      key={social.name}
-                      href={social.href}
+                      key={social.id}
+                      href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-amber-600 transition-colors duration-200"
                       aria-label={social.name}
+                      title={social.name}
                     >
                       <Icon className="w-5 h-5" />
                     </a>

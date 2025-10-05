@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -13,8 +13,24 @@ const styles = ["All", "Modern", "Classic", "Industrial", "Minimalist"];
 export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStyle, setSelectedStyle] = useState("All");
+  const [allProjects, setAllProjects] = useState<Project[]>(projects);
 
-  const filteredProjects = projects.filter((project) => {
+  // Load custom portfolios
+  useEffect(() => {
+    fetch("/data/custom-portfolios.json")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setAllProjects([...data, ...projects]);
+        }
+      })
+      .catch(() => {
+        // If file doesn't exist or error, just use default projects
+        setAllProjects(projects);
+      });
+  }, []);
+
+  const filteredProjects = allProjects.filter((project) => {
     const categoryMatch =
       selectedCategory === "All" || project.category === selectedCategory;
     const styleMatch = selectedStyle === "All" || project.style === selectedStyle;
