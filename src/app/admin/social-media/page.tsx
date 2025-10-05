@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import type { SocialMedia } from "@/types";
 
-const platformIcons: Record<string, any> = {
+const platformIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   Instagram,
   Facebook,
   LinkedIn: Linkedin,
@@ -186,7 +186,6 @@ export default function SocialMediaManagement() {
   };
 
   const handleReorder = async (item: SocialMedia, direction: "up" | "down") => {
-    const currentIndex = socialMedia.findIndex(sm => sm.id === item.id);
     const newOrder = direction === "up" ? item.order - 1.5 : item.order + 1.5;
     
     await handleUpdate(item.id, { order: newOrder });

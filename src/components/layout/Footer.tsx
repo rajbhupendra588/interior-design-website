@@ -36,7 +36,7 @@ const footerLinks = {
 };
 
 // Icon mapping for social media platforms
-const platformIcons: Record<string, any> = {
+const platformIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   Instagram,
   Facebook,
   LinkedIn: Linkedin,

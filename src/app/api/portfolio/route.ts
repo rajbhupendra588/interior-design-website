@@ -59,13 +59,13 @@ export async function POST(request: NextRequest) {
 
     // Basic validation
     if (!body.title || !body.description || !body.category || !body.style || !body.location) {
-      return ApiResponse.validationError({
-        title: !body.title ? "Title is required" : undefined,
-        description: !body.description ? "Description is required" : undefined,
-        category: !body.category ? "Category is required" : undefined,
-        style: !body.style ? "Style is required" : undefined,
-        location: !body.location ? "Location is required" : undefined,
-      });
+      const errors = [];
+      if (!body.title) errors.push({ field: "title", message: "Title is required" });
+      if (!body.description) errors.push({ field: "description", message: "Description is required" });
+      if (!body.category) errors.push({ field: "category", message: "Category is required" });
+      if (!body.style) errors.push({ field: "style", message: "Style is required" });
+      if (!body.location) errors.push({ field: "location", message: "Location is required" });
+      return ApiResponse.validationError(errors);
     }
 
     // Create slug from title
