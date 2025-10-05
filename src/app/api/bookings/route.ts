@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { validateAuthHeader } from "@/lib/auth";
-import { addBooking, readBookings } from "@/lib/db";
+import { getStorageAdapter } from "@/lib/storage";
 import { validateBookingData } from "@/lib/validation";
 import { APP_CONFIG } from "@/lib/constants";
 import { ApiResponse } from "@/lib/api-response";
@@ -36,8 +36,9 @@ export async function POST(request: NextRequest) {
       Status: APP_CONFIG.BOOKING.STATUS.PENDING,
     };
 
-    // Save booking
-    await addBooking(newBooking);
+    // Save booking (uses Excel or Database depending on environment)
+    const storage = await getStorageAdapter();
+    await storage.bookings.add(newBooking);
 
     return ApiResponse.success(
       { bookingId: newBooking.ID },
@@ -60,8 +61,9 @@ export async function GET(request: NextRequest) {
       return ApiResponse.unauthorized();
     }
 
-    // Read bookings from database
-    const bookings = await readBookings();
+    // Read bookings (from Excel or Database)
+    const storage = await getStorageAdapter();
+    const bookings = await storage.bookings.read();
 
     return ApiResponse.success({ bookings });
   } catch (error) {

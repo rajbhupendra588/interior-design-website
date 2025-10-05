@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { validateAuthHeader } from "@/lib/auth";
 import { ApiResponse } from "@/lib/api-response";
-import { addCustomPortfolio, getCustomPortfolios } from "@/lib/db";
+import { getStorageAdapter } from "@/lib/storage";
 import type { Project } from "@/types";
 
 /**
@@ -55,8 +55,9 @@ export async function POST(request: NextRequest) {
       area: body.area || "",
     };
 
-    // Save to database
-    await addCustomPortfolio({
+    // Save to storage (Excel or Database)
+    const storage = await getStorageAdapter();
+    await storage.portfolios.add({
       id: newPortfolio.id,
       title: newPortfolio.title,
       description: newPortfolio.description,
@@ -92,8 +93,9 @@ export async function GET(request: NextRequest) {
       return ApiResponse.unauthorized();
     }
 
-    // Read portfolios from database
-    const portfolios = await getCustomPortfolios();
+    // Read portfolios from storage
+    const storage = await getStorageAdapter();
+    const portfolios = await storage.portfolios.getAll();
 
     return ApiResponse.success({ portfolios });
   } catch (error) {

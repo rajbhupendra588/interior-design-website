@@ -1,5 +1,5 @@
 import { sql } from '@vercel/postgres';
-import type { Booking } from '@/types';
+import type { Booking, CustomPortfolio, SocialMedia } from '@/types';
 
 /**
  * Initialize database tables
@@ -125,7 +125,7 @@ export async function updateBookingStatus(bookingId: string, status: string): Pr
     WHERE id = ${bookingId}
   `;
   
-  return result.rowCount > 0;
+  return (result.rowCount ?? 0) > 0;
 }
 
 export async function findBookingById(bookingId: string): Promise<Booking | undefined> {
@@ -154,7 +154,7 @@ export async function findBookingById(bookingId: string): Promise<Booking | unde
 }
 
 // Portfolio functions
-export async function addCustomPortfolio(portfolio: any): Promise<void> {
+export async function addCustomPortfolio(portfolio: CustomPortfolio): Promise<void> {
   await initializeDatabase();
   
   await sql`
@@ -178,7 +178,7 @@ export async function addCustomPortfolio(portfolio: any): Promise<void> {
   `;
 }
 
-export async function getCustomPortfolios(): Promise<any[]> {
+export async function getCustomPortfolios(): Promise<CustomPortfolio[]> {
   await initializeDatabase();
   
   const result = await sql`
@@ -200,11 +200,11 @@ export async function getCustomPortfolios(): Promise<any[]> {
     ORDER BY created_at DESC
   `;
   
-  return result.rows;
+  return result.rows as CustomPortfolio[];
 }
 
 // Social media functions
-export async function getSocialMedia(): Promise<any[]> {
+export async function getSocialMedia(): Promise<Partial<SocialMedia>[]> {
   await initializeDatabase();
   
   const result = await sql`
@@ -214,10 +214,10 @@ export async function getSocialMedia(): Promise<any[]> {
     ORDER BY platform
   `;
   
-  return result.rows;
+  return result.rows as Partial<SocialMedia>[];
 }
 
-export async function updateSocialMedia(platforms: any[]): Promise<void> {
+export async function updateSocialMedia(platforms: Partial<SocialMedia>[]): Promise<void> {
   await initializeDatabase();
   
   // Delete all existing

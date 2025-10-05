@@ -1,19 +1,19 @@
 import { NextRequest } from "next/server";
 import { validateAuthHeader } from "@/lib/auth";
 import { ApiResponse } from "@/lib/api-response";
-import { getSocialMedia, updateSocialMedia } from "@/lib/db";
-import type { SocialMedia } from "@/types";
+import { getStorageAdapter } from "@/lib/storage";
 
 // GET - Fetch all social media links (public or admin)
 export async function GET(request: NextRequest) {
   try {
-    const socialMedia = await getSocialMedia();
+    const storage = await getStorageAdapter();
+    const socialMedia = await storage.socialMedia.get();
     
     // Check if request is from admin (has auth token)
     const authHeader = request.headers.get("authorization");
     const isAdmin = authHeader && validateAuthHeader(authHeader);
     
-    // Database query already filters enabled links for non-admin
+    // Filter enabled links for non-admin
     const filteredData = isAdmin ? socialMedia : socialMedia.filter(sm => sm.enabled);
     
     return ApiResponse.success({ data: filteredData }, "Social media links retrieved successfully");
@@ -40,8 +40,9 @@ export async function POST(request: NextRequest) {
       return ApiResponse.error("Invalid data format");
     }
 
-    // Update all social media in database
-    await updateSocialMedia(platforms);
+    // Update all social media in storage
+    const storage = await getStorageAdapter();
+    await storage.socialMedia.update(platforms);
 
     return ApiResponse.success({}, "Social media links updated successfully");
   } catch (error) {

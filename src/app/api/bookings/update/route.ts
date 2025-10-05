@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { validateAuthHeader } from "@/lib/auth";
-import { updateBookingStatus, findBookingById } from "@/lib/db";
+import { getStorageAdapter } from "@/lib/storage";
 import { isValidBookingStatus } from "@/lib/validation";
 import { ApiResponse } from "@/lib/api-response";
 
@@ -27,14 +27,17 @@ export async function PATCH(request: NextRequest) {
       return ApiResponse.badRequest("Invalid status value");
     }
 
+    // Get storage adapter
+    const storage = await getStorageAdapter();
+    
     // Check if booking exists
-    const booking = await findBookingById(bookingId);
+    const booking = await storage.bookings.findById(bookingId);
     if (!booking) {
       return ApiResponse.notFound("Booking not found");
     }
 
     // Update booking status
-    const updated = await updateBookingStatus(bookingId, status);
+    const updated = await storage.bookings.updateStatus(bookingId, status);
     if (!updated) {
       return ApiResponse.error("Failed to update booking");
     }

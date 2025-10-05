@@ -119,4 +119,20 @@ export interface SocialMedia {
   updatedAt: string;
 }
 
+export interface CustomPortfolio {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  style: string;
+  location: string;
+  areaSize?: string;
+  year: string;
+  imageUrl?: string;
+  materials?: string;
+  challenges?: string;
+  impact?: string;
+  createdAt?: string;
+}
+
 
