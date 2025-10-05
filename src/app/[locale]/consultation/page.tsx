@@ -227,7 +227,7 @@ export default function ConsultationPage() {
                     value={formData.phone}
                     onChange={(e) => updateFormData("phone", e.target.value)}
                     error={errors.phone}
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 87667 81293"
                   />
 
                   <Input

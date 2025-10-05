@@ -12,13 +12,13 @@ const locations = [
   {
     name: "Mumbai Office",
     address: "Bandra West, Mumbai, Maharashtra 400050",
-    phone: "+91 98765 43210",
+    phone: "+91 87667 81293",
     email: "mumbai@luxeinteriors.in",
   },
   {
     name: "Bangalore Studio",
     address: "Indiranagar, Bangalore, Karnataka 560038",
-    phone: "+91 98765 43211",
+    phone: "+91 87667 81293",
     email: "bangalore@luxeinteriors.in",
   },
 ];
@@ -94,11 +94,11 @@ export default function ContactPage() {
                   </h3>
                   <div className="space-y-3">
                     <a
-                      href="tel:+919876543210"
+                      href="tel:+918766781293"
                       className="flex items-center space-x-3 text-slate-600 hover:text-amber-600 transition-colors duration-200"
                     >
                       <Phone className="w-5 h-5" />
-                      <span>+91 98765 43210</span>
+                      <span>+91 87667 81293</span>
                     </a>
                     <a
                       href="mailto:info@luxeinteriors.in"
@@ -212,7 +212,7 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, phone: e.target.value })
                       }
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 87667 81293"
                     />
 
                     <Select

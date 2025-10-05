@@ -101,11 +101,11 @@ export function Footer() {
               {/* Contact Info */}
               <div className="space-y-3">
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+918766781293"
                   className="flex items-center space-x-3 text-slate-400 hover:text-amber-500 transition-colors duration-200"
                 >
                   <Phone className="w-5 h-5" />
-                  <span>+91 98765 43210</span>
+                  <span>+91 87667 81293</span>
                 </a>
                 <a
                   href="mailto:info@luxeinteriors.in"
@@ -240,7 +240,7 @@ export function Footer() {
 
       {/* WhatsApp Float Button */}
       <a
-        href="https://wa.me/919876543210"
+        href="https://wa.me/918766781293"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all duration-300 hover:scale-110 z-50"
