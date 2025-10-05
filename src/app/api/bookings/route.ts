@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { validateAuthHeader } from "@/lib/auth";
-import { addBooking, readBookings, initializeExcelFile } from "@/lib/excel";
+import { addBooking, readBookings } from "@/lib/db";
 import { validateBookingData } from "@/lib/validation";
 import { APP_CONFIG } from "@/lib/constants";
 import { ApiResponse } from "@/lib/api-response";
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     };
 
     // Save booking
-    addBooking(newBooking);
+    await addBooking(newBooking);
 
     return ApiResponse.success(
       { bookingId: newBooking.ID },
@@ -60,13 +60,10 @@ export async function GET(request: NextRequest) {
       return ApiResponse.unauthorized();
     }
 
-    // Initialize Excel file if needed
-    initializeExcelFile();
+    // Read bookings from database
+    const bookings = await readBookings();
 
-    // Read bookings
-    const bookings = readBookings();
-
-    return ApiResponse.success({ bookings: bookings.reverse() });
+    return ApiResponse.success({ bookings });
   } catch (error) {
     console.error("Error fetching bookings:", error);
     return ApiResponse.error("Failed to fetch bookings");

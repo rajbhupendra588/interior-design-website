@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { validateAuthHeader } from "@/lib/auth";
-import { updateBookingStatus, findBookingById } from "@/lib/excel";
+import { updateBookingStatus, findBookingById } from "@/lib/db";
 import { isValidBookingStatus } from "@/lib/validation";
 import { ApiResponse } from "@/lib/api-response";
 
@@ -28,13 +28,13 @@ export async function PATCH(request: NextRequest) {
     }
 
     // Check if booking exists
-    const booking = findBookingById(bookingId);
+    const booking = await findBookingById(bookingId);
     if (!booking) {
       return ApiResponse.notFound("Booking not found");
     }
 
     // Update booking status
-    const updated = updateBookingStatus(bookingId, status);
+    const updated = await updateBookingStatus(bookingId, status);
     if (!updated) {
       return ApiResponse.error("Failed to update booking");
     }

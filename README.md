@@ -195,10 +195,16 @@ npx axe http://localhost:3000
 ## 📦 Deployment
 
 ### Vercel (Recommended)
-1. Push code to GitHub
-2. Import project in Vercel dashboard
-3. Configure environment variables
-4. Deploy
+
+⚠️ **IMPORTANT**: This project requires **Vercel Postgres** database for bookings, portfolio, and social media features to work on Vercel.
+
+**Quick Setup** (5 minutes):
+1. Create Vercel Postgres database in your Vercel dashboard
+2. Copy database credentials to environment variables
+3. Deploy your project
+4. Done! 🎉
+
+**Detailed Guide**: See [`VERCEL_FIX.md`](./VERCEL_FIX.md) and [`docs/VERCEL_SETUP.md`](./docs/VERCEL_SETUP.md)
 
 ```bash
 npm install -g vercel
